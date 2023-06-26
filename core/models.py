@@ -43,3 +43,4 @@ class GeneralSetting(models.Model):
         verbose_name = 'General Setting'
         verbose_name_plural = 'General Settings'
         ordering = ('id',)
+
