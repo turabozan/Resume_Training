@@ -11,3 +11,12 @@ class GeneralSettingsAdmin(admin.ModelAdmin):
     #readonly_fields = []
     class Meta:
         model = GeneralSetting
+
+@admin.register(ImageSetting)
+class ImageSetting(admin.ModelAdmin):
+    list_display = ['id','name','description','file', 'updated_date','created_date']
+    search_fields = ['name','description','file']
+    list_editable = ['file']
+    #readonly_fields = []
+    class Meta:
+        model = ImageSetting
