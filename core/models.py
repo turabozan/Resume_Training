@@ -102,9 +102,9 @@ class Skill(AbstractModel):
     )
 
     def __str__(self):
-        return f'Skill Setting {self.name}'
+        return f'Skill {self.name}'
 
     class Meta:
-        verbose_name = 'Skill Setting'
-        verbose_name_plural = 'Skill Settings'
+        verbose_name = 'Skill'
+        verbose_name_plural = 'Skills'
         ordering = ('order',)
