@@ -22,6 +22,8 @@ def index(request):
 
     # Experience
     experiences = Experience.objects.all().order_by('-start_date')
+    # Education
+    educations = Education.objects.all().order_by('-start_date')
 
     context ={
         'site_title':site_title,
@@ -41,6 +43,9 @@ def index(request):
 
         #experiences
         'experiences': experiences,
+
+        #educations
+        'educations': educations,
     }
     return render(request, 'index.html',context=context)
 
