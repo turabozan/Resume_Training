@@ -20,6 +20,9 @@ def index(request):
     # Skills
     skills = Skill.objects.all()
 
+    # Experience
+    experiences = Experience.objects.all().order_by('-start_date')
+
     context ={
         'site_title':site_title,
         'site_keywords': site_keywords,
@@ -29,10 +32,15 @@ def index(request):
         'home_banner_description': home_banner_description,
         'about_myself_welcome': about_myself_welcome,
         'about_myself_footer': about_myself_footer,
+        #images
         'header_logo': header_logo,
         'home_banner_image': home_banner_image,
         'site_favicon': site_favicon,
+        #skills
         'skills': skills,
+
+        #experiences
+        'experiences': experiences,
     }
     return render(request, 'index.html',context=context)
 
