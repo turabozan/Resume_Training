@@ -29,3 +29,12 @@ class Skill(admin.ModelAdmin):
     #readonly_fields = []
     class Meta:
         model = Skill
+
+@admin.register(Experience)
+class Experience(admin.ModelAdmin):
+    list_display = ['id','company_name','job_title','job_location','start_date','end_date', 'updated_date','created_date']
+    search_fields = ['company_name','job_title','job_location']
+    list_editable = ['company_name','job_title','start_date','end_date']
+    #readonly_fields = []
+    class Meta:
+        model = Experience
