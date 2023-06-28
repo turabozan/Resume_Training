@@ -25,6 +25,9 @@ def index(request):
     # Education
     educations = Education.objects.all().order_by('-start_date')
 
+    # Social Media
+    social_medias = SocialMedia.objects.all()
+
     context ={
         'site_title':site_title,
         'site_keywords': site_keywords,
@@ -46,6 +49,9 @@ def index(request):
 
         #educations
         'educations': educations,
+
+        #social_medias
+        'social_medias': social_medias,
     }
     return render(request, 'index.html',context=context)
 

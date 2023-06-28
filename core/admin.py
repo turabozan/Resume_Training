@@ -47,3 +47,13 @@ class Education(admin.ModelAdmin):
     #readonly_fields = []
     class Meta:
         model = Education
+
+@admin.register(SocialMedia)
+class SocialMedia(admin.ModelAdmin):
+    list_display = ['id','order','link','icon','updated_date','created_date',]
+    search_fields = ['link','icon']
+    list_editable = ['order','link','icon',]
+    #readonly_fields = []
+    class Meta:
+        model = SocialMedia
+
