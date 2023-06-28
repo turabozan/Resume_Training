@@ -1,5 +1,6 @@
-from django.core.validators import MaxValueValidator,MinValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+
 
 # Create your models here.
 
@@ -20,12 +21,13 @@ class AbstractModel(models.Model):
     class Meta:
         abstract = True
 
+
 class GeneralSetting(AbstractModel):
     name = models.CharField(
         default='',
         max_length=254,
         blank=True,
-        verbose_name= 'Name',
+        verbose_name='Name',
         help_text='',
     )
     description = models.CharField(
@@ -43,13 +45,14 @@ class GeneralSetting(AbstractModel):
         help_text='',
     )
 
-
     def __str__(self):
         return f'General Setting {self.name}'
+
     class Meta:
         verbose_name = 'General Setting'
         verbose_name_plural = 'General Settings'
         ordering = ('id',)
+
 
 class ImageSetting(AbstractModel):
     name = models.CharField(
@@ -109,14 +112,15 @@ class Skill(AbstractModel):
         verbose_name_plural = 'Skills'
         ordering = ('order',)
 
+
 class Experience(AbstractModel):
-    company_name  = models.CharField(
+    company_name = models.CharField(
         default="",
         max_length=254,
         blank=True,
         verbose_name='Company Name'
     )
-    job_title =models.CharField(
+    job_title = models.CharField(
         default="",
         max_length=254,
         blank=True,
@@ -154,7 +158,7 @@ class Education(AbstractModel):
         blank=True,
         verbose_name='School Name'
     )
-    major =models.CharField(
+    major = models.CharField(
         default="",
         max_length=254,
         blank=True,
@@ -209,4 +213,36 @@ class SocialMedia(AbstractModel):
     class Meta:
         verbose_name = 'Social Media'
         verbose_name_plural = 'SocialMedia'
+        ordering = ('order',)
+
+class Document(AbstractModel):
+    order = models.IntegerField(
+        default=0,
+        verbose_name='Order'
+    )
+    slug = models.SlugField(
+        default="",
+        max_length=254,
+        blank=True,
+        verbose_name='Slug',
+    )
+    button_text = models.CharField(
+        default="",
+        max_length=254,
+        blank=True,
+        verbose_name='Button Text',
+    )
+    file = models.FileField(
+        default="",
+        verbose_name='File',
+        blank=True,
+        upload_to='documents/',
+    )
+
+    def __str__(self):
+        return f'Document: {self.slug}'
+
+    class Meta:
+        verbose_name = 'Document'
+        verbose_name_plural = 'Documents'
         ordering = ('order',)

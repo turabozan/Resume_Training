@@ -57,3 +57,13 @@ class SocialMedia(admin.ModelAdmin):
     class Meta:
         model = SocialMedia
 
+
+@admin.register(Document)
+class Document(admin.ModelAdmin):
+    list_display = ['id','order','slug','button_text','file','updated_date','created_date',]
+    search_fields = ['name','button_text']
+    list_editable = ['order','slug','button_text','file',]
+    #readonly_fields = []
+    class Meta:
+        model = Document
+
